@@ -66,7 +66,10 @@ try {
 		}
 	);
 	const records = await similaritySearch(query.embeddings[0].values);
-	console.log("SIMILAR RECORDS:", records);
+	console.log(
+		"SIMILAR RECORDS:",
+		records.matches.map((r) => ({ score: r.score, text: r.metadata.text }))
+	);
 } catch (err) {
 	console.error("Error:", err);
 }
